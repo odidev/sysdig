@@ -172,7 +172,16 @@ else()
 	set(LUAJIT_INCLUDE "${LUAJIT_SRC}")
 	if(NOT WIN32)
 		set(LUAJIT_LIB "${LUAJIT_SRC}/libluajit.a")
- 		if("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "ppc64le")
+		if("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "aarch64")
+		ExternalProject_Add(luajit
+			GIT_REPOSITORY "https://github.com/cbaylis/luajit-aarch64.git"
+			GIT_TAG "63465fe"
+			CONFIGURE_COMMAND ""
+			BUILD_COMMAND ${CMD_MAKE}
+			BUILD_IN_SOURCE 1
+			BUILD_BYPRODUCTS ${LUAJIT_LIB}
+			INSTALL_COMMAND "")
+		elseif("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "ppc64le")
 		ExternalProject_Add(luajit
 			GIT_REPOSITORY "https://github.com/moonjit/moonjit"
 			GIT_TAG "2.1.2"
