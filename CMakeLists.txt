@@ -174,8 +174,8 @@ else()
 		set(LUAJIT_LIB "${LUAJIT_SRC}/libluajit.a")
 		if("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "aarch64")
 		ExternalProject_Add(luajit
-			GIT_REPOSITORY "https://github.com/cbaylis/luajit-aarch64.git"
-			GIT_TAG "63465fe"
+			GIT_REPOSITORY "https://github.com/LuaJIT/LuaJIT"
+			GIT_TAG "1d8b747c161db457e032a023ebbff511f5de5ec2"
 			CONFIGURE_COMMAND ""
 			BUILD_COMMAND ${CMD_MAKE}
 			BUILD_IN_SOURCE 1
